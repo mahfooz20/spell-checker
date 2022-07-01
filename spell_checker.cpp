@@ -1,23 +1,14 @@
-/*
-Spell Checker using custom dictionary
-*/
-
 #include <iostream>
 #include <Windows.h> 
 #include <vector>
 using namespace std;
 
-#ifdef _WIN32
-#define WIN32_LEAN_AND_MEAN
-#define VC_EXTRALEAN
-#include <Windows.h> // for displaying colors
-#endif // Windows
-#define color_dark_red 4
-
-
-
-
-
+// #ifdef _WIN32
+// #define WIN32_LEAN_AND_MEAN
+// #define VC_EXTRALEAN
+// #include <Windows.h>
+// #endif 
+// #define color_dark_red 4
 
 struct TrieNode {
     bool terminating = false;
@@ -37,14 +28,8 @@ public:
     //vector<string, int> getDictionary();
 };
 
-
-
 #define underlineOn "\033[4m"
 #define underlineOff "\033[0m"
-
-
-
-
 
 Trie::Trie(){
     root = new TrieNode();
@@ -74,7 +59,6 @@ bool Trie::searchWord(string word){
     return currNode->terminating;
 }
 
-
 bool Trie::deleteWord(string word){
     TrieNode* currNode = root;
     for(char c: word){
@@ -88,7 +72,6 @@ bool Trie::deleteWord(string word){
     return true;
 }
 
-
 bool Trie::updateWord(string oldWord, string newWord){
     
     bool ret = deleteWord(oldWord);
@@ -97,13 +80,6 @@ bool Trie::updateWord(string oldWord, string newWord){
     
     return ret;
 }
-
-
-
-
-
-
-
 
 int main(){
 
